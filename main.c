@@ -1,6 +1,6 @@
-#define  _GNU_SOURCE
 #include <stdio.h>
-#include <unistd.h>
+#include "mwlc_path.h"
+#include "mwlc_str.h"
 
 int main(int argc, char **argv)
 {
@@ -9,6 +9,10 @@ int main(int argc, char **argv)
 		printf("%s\n", *(argv++));
 	}
 
-	printf("%s\n", get_current_dir_name());
+	printf("%s\n", getCurrentPath());
+
+	printf("%s\n", getHome());
+
+	printf("%s\n", concat(getCurrentPath(), getHome()));
 	return 0;
 }
