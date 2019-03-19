@@ -5,7 +5,7 @@ int main(int argc, char **argvs)
 {
 	if (argc < 2)
 	{
-		printf("No path set.\n");
+		fprintf(stderr, "No argument found.\n");
 		return 1;
 	}
 
