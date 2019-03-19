@@ -75,7 +75,7 @@ char *normalizePath(char *path)
 
 char *getAbsolutePath(char *path)
 {
-	if(*path == '~' && *(path + 1) == '/')
+	if(*path == '~' && isEnd(*(path + 1)))
 	{
 		path = concat(getHome(), path + 1);
 	}
