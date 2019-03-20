@@ -3,7 +3,7 @@ install_2absp: 2absp 2absp.1.gz
 	cp 2absp.1.gz /usr/share/man/man1/
 	mkdir -p /opt/mwlc/2absp
 	cp 2absp /opt/mwlc/2absp
-	ln -s /opt/mwlc/2absp/2absp /usr/bin/2absp
+	ln -sf /opt/mwlc/2absp/2absp /usr/bin/2absp
 mwlc: main.o mwlc_path.o mwlc_str.o
 	gcc -o mwlc main.o mwlc_path.o mwlc_str.o
 2absp.1.gz: 2absp.1
