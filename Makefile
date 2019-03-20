@@ -13,4 +13,4 @@ mwlc_path.o: mwlc_path.c
 mwlc_str.o: mwlc_str.c
 	gcc -c mwlc_str.c
 clean:
-	rm -f mwlc 2absp *.o
+	rm -f mwlc 2absp *.o *.gz
