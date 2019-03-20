@@ -19,7 +19,7 @@ char *getHome()
 }
 
 int isEnd(char c) {
-	return c == '/' || c == 0;
+	return c == '/' || !c;
 }
 
 void setIncorrectPath(void)
