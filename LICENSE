@@ -1,43 +1,9 @@
-'\" t
-
-.TH "2absp" "1" "21\ \&MARCH\ \&2019" "2absp 1.0.0 - alpha" "2absp"
-
-.SH "NAME"
-2absp - converts file path to absolute path
-.SH "SYNOPSIS"
-\fB2absp\fR \fBpath_1\fR [\fBpath_2\fR... [\fBpath_n\fR]]
-.SH "DESCRIPTION"
-Converts file pathes to absolute. NOTE: 2absp \fBDOES NOT\fR check if pathes exist.
-.PP
-.SH "OPTIONS"
-No options
-.PP
-.SH "EXAMPLES"
-2absp ../../projects
-.RS 4
-Output absolute path to ../../projects
-.RE
-2absp ~/Documents/ Wallpapers/see/see-wallpaper03.png
-.RS 4
-Output absolute pathes to ~/Documents/ and ./Wallpapers/see/see-wallpaper03.png
-.RE
-.PP
-.SH "AUTHOR"
-Kuznetsov Leonid
-.RS 4
-https://github.com/kuznetsovlv
-https://www.linkedin.com/in/kuznetsov-leonid-651a50126/
-.RE
-.SH "REPORTING BUGS"
-https://github.com/kuznetsovlv/mwlc/issues
-.PP
-.SH "COPYRIGHT"
 The MIT License (MIT)
-.PP
-Copyright (c) 2019 Kuznetsov Leonid
-.PP
+
+Copyright (c) 2017 Kuznetsov Leonid
+
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-.PP
+
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-.PP
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
