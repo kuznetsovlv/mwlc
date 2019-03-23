@@ -9,8 +9,21 @@ int main(int argc, char **argvs)
 		return 1;
 	}
 
-	int i;
-	for(i = 1; i < argc; ++i) printf("%s\n", getAbsolutePath(*(argvs + i)));
+	int code = 0;
 
-	return 0;
+	int i;
+	for(i = 1; i < argc; ++i)
+	{
+		if (isValidPath(*(argvs + i)))
+		{
+			printf("%s\n", getAbsolutePath(*(argvs + i)));
+		}
+		else
+		{
+			fprintf(stderr, "Invalid path name %s\n", *(argvs +i));
+			++code;
+		}
+	}
+
+	return code;
 }
