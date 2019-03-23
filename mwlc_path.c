@@ -40,32 +40,20 @@ int isValidPath(const char *path)
 	return 1;
 }
 
-void setIncorrectPath(void)
-{
-	fprintf(stderr, "Invalid path.\n");
-	exit(1);
-}
-
-char *normalizePath(char *path)
+int normalizePath(char *path)
 {
 	char *f, *b;
 
-	for(f = path; *f != 0; ++f)
-	{
-		if(*f == '/' && *(f + 1) == '~' && isEnd(*(f + 2)))
-		{
-			setIncorrectPath();
-		}
-	}
-
-	for(b = f = path; *f != 0; ++f, ++b)
+	// "./" keys
+	for(b = f = path; *f; ++f, ++b)
 	{
 		*b = *f;
 		while(*f == '/' && *(f + 1) == '.' && isEnd(*(f + 2))) ++f;
 	}
 	*b = 0;
 
-	for(b = f = path; *f != 0; ++f, ++b)
+	// "../" key
+	for(b = f = path; *f; ++f, ++b)
 	{
 		*b = *f;
 		if (*f == '/' && *(f + 1) == '.' && *(f + 2) == '.' && isEnd(*(f + 3)))
@@ -73,7 +61,7 @@ char *normalizePath(char *path)
 			f += 2;
 			while(*b == '/')
 			{
-				if(--b <= path) setIncorrectPath();
+				if(--b <= path) return 0; // Out of root dirrectory
 			}
 
 			while(*b != '/') --b;
@@ -81,25 +69,34 @@ char *normalizePath(char *path)
 	}
 	*b = 0;
 
-	for(b = f = path; *f != 0; ++f, ++b)
+	// Remove dublicated "/"
+	for(b = f = path; *f; ++f, ++b)
 	{
 		*b = *f;
 		while(*f == '/' && *(f + 1) == '/') ++f;
 	}
 	*b = 0;
 
-	return path;
+	return 1;
 }
 
-char *getAbsolutePath(char *path)
+char *getAbsolutePath(const char *path)
 {
+	char *result;
+
 	if(*path == '~' && isEnd(*(path + 1)))
 	{
-		path = concat(getHome(), path + 1);
+		result = concat(getHome(), path + 1);
 	}
 	else if(*path != '/')
 	{
-		path = concat(concat(getCurrentPath(), "/"), path);
+		result = concat(concat(getCurrentPath(), "/"), path);
 	}
-	return normalizePath(path);
+
+	if (!normalizePath(result))
+	{
+		fprintf(stderr, "The resulting path of %s is out of root dirrectory.\n", path);
+		exit(-1);
+	}
+	return result;
 }
