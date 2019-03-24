@@ -20,7 +20,8 @@ As root:
 ```
 #### Usage
 ```bash
-    2absp path_1 [path_2... [path_n]]
+    2absp PATH...
+    2absp OPTION
 ```
 See man.
 
