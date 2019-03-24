@@ -1,16 +1,27 @@
 '\" t
 
-.TH "2absp" "1" "21\ \&MARCH\ \&2019" "2absp 1.0.0 - alpha" "2absp"
+.TH "2absp" "1" "21\ \&MARCH\ \&2019" "2absp 1.1.0 - Alpha" "2absp"
 
 .SH "NAME"
 2absp - converts file path to absolute path
 .SH "SYNOPSIS"
-\fB2absp\fR \fBpath_1\fR [\fBpath_2\fR... [\fBpath_n\fR]]
+\fB2absp\fR [OPTION]
+.RE
+\fB2absp\fR PATH...
+.PP
 .SH "DESCRIPTION"
 Converts file pathes to absolute. NOTE: 2absp \fBDOES NOT\fR check if pathes exist.
 .PP
 .SH "OPTIONS"
-No options
+\fB-h\fR, \fB--help\fR
+.RS 4
+Show help
+.RE
+.PP
+\fB-v\fR, \fB--version\fR
+.RS 4
+Show version
+.RE
 .PP
 .SH "EXAMPLES"
 2absp ../../projects

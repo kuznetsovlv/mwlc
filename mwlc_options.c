@@ -25,7 +25,7 @@ void unknownOption(const char *option)
 	help();
 }
 
-int processOptions(const int count, const char **options)
+int processOptions(int count, char **options)
 {
 	int i;
 	for(i = 0; i < count; ++i, ++options)
