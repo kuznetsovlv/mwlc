@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "mwlc_path.h"
+#include "mwlc_options.h"
 
 int main(int argc, char **argvs)
 {
@@ -11,17 +12,19 @@ int main(int argc, char **argvs)
 
 	int code = 0;
 
-	int i;
-	for(i = 1; i < argc; ++i)
+	if(!processOptions(--argc, ++argvs))
 	{
-		if (isValidPath(*(argvs + i)))
+		for(;argc; --argc, ++argvs)
 		{
-			printf("%s\n", getAbsolutePath(*(argvs + i)));
-		}
-		else
-		{
-			fprintf(stderr, "Invalid path name %s\n", *(argvs +i));
-			++code;
+			if (isValidPath(*argvs))
+			{
+				printf("%s\n", getAbsolutePath(*argvs));
+			}
+			else
+			{
+				fprintf(stderr, "Invalid path name %s\n", *argvs);
+				++code;
+			}
 		}
 	}
 
