@@ -86,11 +86,11 @@ char *getAbsolutePath(const char *path)
 
 	if(*path == '~' && isEnd(*(path + 1)))
 	{
-		result = concat(getHome(), path + 1);
+		result = concat(2, getHome(), path + 1);
 	}
 	else if(*path != '/')
 	{
-		result = concat(concat(getCurrentPath(), "/"), path);
+		result = concat(3, getCurrentPath(), "/", path);
 	}
 
 	if (!normalizePath(result))
